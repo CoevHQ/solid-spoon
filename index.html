@@ -15,6 +15,15 @@
         left: 50%;
         opacity: 0.5;
         transition: all 0.2s ease-in-out;
+          
+      }
+      #spoon,#spoons,#theplus {
+          -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none;   /* Chrome/Safari/Opera */
+          -khtml-user-select: none;    /* Konqueror */
+          -moz-user-select: none;      /* Firefox */
+          -ms-user-select: none;       /* Internet Explorer/Edge */
+          user-select: none;
       }
       #spoon:hover {
         opacity: 1;
@@ -37,11 +46,11 @@
     
     <div id="bg">
       <div class="row">
-        <p id="spoons"></p>
+        <p>You have: <span id="spoons">0</span> Spoons</p>
       </div>
       <div class="row">
         <div id="spoon"><img width="10em" height="10em" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png"></div>
-        <p id="theplus"></p>
+        <span id="theplus"></span>
       </div>
     </div>
     
