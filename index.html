@@ -3,12 +3,30 @@
   <head>
     <title>Solid Spoon</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/superhero/bootstrap.min.css" rel="stylesheet" integrity="sha384-88w0u/oucDSTE30ETLLIobzhT+bQ6CSsiqQyLZpwHvve89eqUA9F2Db6ST6jGRLx" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:700' rel='stylesheet' type='text/css'>
     <link href="/static/style.css" rel="stylesheet" type="text/css">
+    <style>
+      body {
+        position: relative;
+      }
+      #spoon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        opacity: 0.9;
+        transition: all 0.2s ease-in-out;
+      }
+      #spoon:hover {
+        opacity: 1;
+        width: 110%;
+        height: 110%;
+      }
+    </style>
   </head>
   <body>
     
     <div id="bg">
-      <div id="spoon"><img width="60px" height="60px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png"></div>
+      <div id="spoon"><img width="100px" height="100px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png"></div>
     </div>
     
     <!-- Le Scripts -->
@@ -16,7 +34,30 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
       <script>
         $(document).ready(function(){
-          penises.asia
+          var srch = 0
+          var pls = 1
+          var rnd = 0
+          var bgc = 1
+          // Checking Score
+          setInterval(function(){
+            $('title').text('Solid Spoon ' + '('+srch+')')
+          }, 200)
+          
+          $('#spoon').click(function(){
+            srch+=pls;
+            switch(bgc%3){
+              case 1: $('body').css('background-color','#ef5350') 
+                break;
+              case 2: $('body').css('background-color','#ec407a') 
+                break;
+              case 3: $('body').css('background-color','#ab47bc') 
+                break;
+              case 0: $('body').css('background-color','#7e57c2') 
+                break;
+              bgc++;
+            }
+          })
+          
         })
       </script>
   </body>
