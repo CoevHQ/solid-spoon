@@ -18,15 +18,31 @@
       }
       #spoon:hover {
         opacity: 1;
-        width: 130%;
-        height: 130%;
+        width: 12em;
+        height: 12em;
+      }
+      #theplus {
+        font-family: 'Roboto Slab', serif;
+        color: #ffc107;
+        font-weight: 600;
+      }
+      #spoons {
+        font-family: 'Roboto Slab', serif;
+        color: #fff;
+        font-weight: 300;
       }
     </style>
   </head>
   <body>
     
     <div id="bg">
-      <div id="spoon"><img width="10em" height="10em" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png"></div>
+      <div class="row">
+        <p id="spoons"></p>
+      </div>
+      <div class="row">
+        <div id="spoon"><img width="10em" height="10em" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png"></div>
+        <p id="theplus"></p>
+      </div>
     </div>
     
     <!-- Le Scripts -->
