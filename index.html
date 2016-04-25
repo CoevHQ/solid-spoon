@@ -6,10 +6,6 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:700' rel='stylesheet' type='text/css'>
     <link href="/static/style.css" rel="stylesheet" type="text/css">
     <style>
-      body,html {
-        overflow-x: hidden; 
-        overflow-y: auto;
-      }
       body {
         position: relative;
       }
@@ -22,8 +18,8 @@
       }
       #spoon:hover {
         opacity: 1;
-        width: 110%;
-        height: 110%;
+        width: 130%;
+        height: 130%;
       }
     </style>
   </head>
@@ -37,12 +33,21 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
       <script>
+        jQuery.fn.center = function () {
+            this.css("position","absolute");
+            this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + $(window).scrollTop()) + "px");
+            this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + $(window).scrollLeft()) + "px");
+            return this;
+        }
+      
         $(document).ready(function(){
           var srch = 0
           var pls = 1
           var rnd = 0
           var bgc = 1
           // Checking Score
+          $('#spoon').center();
+          // CENTERED
           setInterval(function(){
             $('title').text('Solid Spoon ' + '('+srch+')')
           }, 200)
