@@ -68,6 +68,7 @@
           var pls = 1
           var rnd = 0
           var bgc = 1
+          var bal = 0
           // Checking Score
           $('#bg').center();
           // CENTERED
@@ -88,6 +89,8 @@
                 break;
             }
                 bgc++;
+                ++bal;
+                $('#spoons').text = bal
           })
           
         })
