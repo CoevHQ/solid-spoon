@@ -76,7 +76,6 @@
           $('#spoon').center();
           // CENTERED
           setInterval(function(){
-            $('title').text('Solid Spoons: ' + '('+srch+')')
             // Title Bar
             $('#spoons').text = bal
             // Status Bar
@@ -94,6 +93,7 @@
               case 0: $('body').css('background-color','#7e57c2') 
                 break;
             }
+                $('title').text('Solid Spoons: ' + '('+srch+')')
                 bgc++;
                 ++bal;
                 console.log('Balance is now ' + bal + '.');
