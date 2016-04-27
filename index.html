@@ -39,7 +39,7 @@
         font-family: 'Roboto Slab', serif;
         color: #fff;
         font-weight: 300;
-        font-size: 18%;
+        font-size: 40px;
       }
     </style>
   </head>
@@ -47,13 +47,10 @@
     
     <div id="bg">
       <div class="row">
-        <span id="spoons">0</span>
-        <div id="spoon"><img width="20%" height="20%" src="http://i.imgur.com/T2iZwDH.png"></div>
+        <p>You have: <span id="spoons">0</span> Spoons</p>
+        <div id="spoon"><img width="180px" height="180px" src="http://i.imgur.com/T2iZwDH.png"></div>
         <span id="theplus"></span>
       </div>
-    </div>
-    <div id="ups">
-      
     </div>
     
     <!-- Le Scripts -->
@@ -79,6 +76,7 @@
           $('#spoon').center();
           // CENTERED
           setInterval(function(){
+            $('title').text('Solid Spoons: ' + '('+srch+')')
             // Title Bar
             $('#spoons').text = bal
             // Status Bar
@@ -96,7 +94,6 @@
               case 0: $('body').css('background-color','#7e57c2') 
                 break;
             }
-                $('title').text('Solid Spoons: ' + '('+srch+')')
                 bgc++;
                 ++bal;
                 console.log('Balance is now ' + bal + '.');
