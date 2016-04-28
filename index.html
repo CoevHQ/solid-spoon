@@ -2,20 +2,24 @@
 <html>
   <head>
     <title>Solid Spoon</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/superhero/bootstrap.min.css" rel="stylesheet" integrity="sha384-88w0u/oucDSTE30ETLLIobzhT+bQ6CSsiqQyLZpwHvve89eqUA9F2Db6ST6jGRLx" crossorigin="anonymous">
+     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/lumen/bootstrap.min.css" rel="stylesheet" integrity="sha384-mvYjhBJXQ9VlNETV/xXShy849GsBHnKzVVudnMOcWUVM/6Nd2ksj8VNng5f8ylyX" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:700' rel='stylesheet' type='text/css'>
     <link href="/static/style.css" rel="stylesheet" type="text/css">
     <style>
       body {
         position: relative;
+        background-color: #212121
       }
       #spoon {
         position: absolute;
         top: 50%;
         left: 50%;
-        opacity: 0.5;
-        transition: all 0.2s ease-in-out;
-          
+        opacity: 0.7;
+        transition: all 0.05s ease-out;
+        z-index: 999
+     margin-top: 150px;
+     margin-bottom: 150px;
       }
       #spoon,#spoons,#theplus {
           -webkit-touch-callout: none; /* iOS Safari */
@@ -27,8 +31,6 @@
       }
       #spoon:hover {
         opacity: 1;
-        width: 28%;
-        height: auto;
       }
       #theplus {
         font-family: 'Roboto Slab', serif;
@@ -39,7 +41,16 @@
         font-family: 'Roboto Slab', serif;
         color: #fff;
         font-weight: 300;
-        font-size: 18%;
+        font-size: 15em;
+      }
+.navbar-inverse .navbar-nav > li > a {
+      color: #000;
+          -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none;   /* Chrome/Safari/Opera */
+          -khtml-user-select: none;    /* Konqueror */
+          -moz-user-select: none;      /* Firefox */
+          -ms-user-select: none;       /* Internet Explorer/Edge */
+          user-select: none;
       }
     </style>
   </head>
@@ -47,16 +58,49 @@
     
     <div id="bg">
       <div class="row">
-        <span id="spoons">0</span>
-        <div id="spoon"><img width="22%" height="22%" src="http://i.imgur.com/T2iZwDH.png"></div>
-        <span id="theplus"></span>
+      <span id="spoons">0</span>
+        <div id="spoon"><img width="220px" height="220px" src="http://i.imgur.com/T2iZwDH.png"></div>
       </div>
     </div>
+    
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a id="clickpwr"><center><i class="fa fa-2x fa-arrow-up" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Spoon Spanker"></i></center>
+</a></li>
+            <li><a id="autoclick"><i class="fa fa-2x fa-user-plus" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Spoon Army"></i>
+</a></li>
+            <li><a id="upspoon"><i class="fa fa-2x fa-gift" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Spoon Up"></i>
+</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a></a></li>
+            <li><a></a></li>
+            <li><a></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
     
     <!-- Le Scripts -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
       <script>
+     $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+})
+        
         jQuery.fn.center = function () {
             this.css("position","absolute");
             this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + $(window).scrollTop()) + "px");
@@ -66,24 +110,21 @@
       
         $(document).ready(function(){
           var srch = 0
-          var pls = 1
-          var rnd = 0
           var bgc = 1
-          var bal = 0
+          var spoon = {bal:0, pls:1, rnd:0}
           // Checking Score
           $('#spoons').center();
-          $('#spoons').css("top", "80%")
           $('#spoon').center();
           // CENTERED
           setInterval(function(){
-            $('title').text('Solid Spoons: ' + '('+srch+')')
+            $('title').text('Solid Spoons: ' + '('+spoon.bal+')')
             // Title Bar
-            $('#spoons').text = bal
+            $('#spoons').text = spoon.bal
             // Status Bar
           }, 100)
           
           $('#spoon').click(function(){
-            srch+=pls;
+            spoon.bal+=spoon.pls;
             switch(bgc%3){
               case 1: $('body').css('background-color','#ef5350') 
                 break;
@@ -95,11 +136,27 @@
                 break;
             }
                 bgc++;
-                ++bal;
-                console.log('Balance is now ' + bal + '.');
-                $('#spoons').text(bal)
+                console.log('Balance is now ' + spoon.bal + '.');
+                $('#spoons').text(spoon.bal)
+        switch(spoon.bal){
+          case 10: $('#spoons').css("left", "42%")
+          break;
+          case 100: $('#spoons').css("left", "34%")
+          break;
+          case 1000: $('#spoons').css("left", "5%")
+          break;
+        }
+                
           })
-          
+        // Size change on clicks
+          $('#spoon').mousedown(function(){
+            $('#spoon').css('transform','scaleX(0.6)');
+            $('#spoon').css('transform','scaleY(0.6)');
+          })
+          $('#spoon').mouseup(function(){
+            $('#spoon').css('transform','scaleX(1)');
+            $('#spoon').css('transform','scaleY(1)');
+          })
         })
       </script>
   </body>
